@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar class= "header" text-center  color="primary">
+    <ion-title>Trainings</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="y" padding>
+ 
+
+
+<table  class="table">
+    
+  <tr class="daysNhours" *ngFor="let i of finleschedule; let rowIndex=index let even = even; let odd=odd" [ngClass]="{odd:odd,even:even}">
+    <td class="yaki"  *ngFor="let j of i; let colIndex=index ">
+      <ng-template
+       *ngIf="rowIndex!=0 && colIndex!=7 && !haveTraine[(rowIndex - 1) + (colIndex * 14)] ;then showBlock">
+      </ng-template>
+    <ng-template
+      *ngIf="(rowIndex==0 || colIndex==7)  ;then notShowBlock">
+    </ng-template>
+    <ng-template
+     *ngIf="rowIndex!=0 && colIndex!=7 && haveTraine[(rowIndex - 1) + (colIndex * 14)] ;then haveTraineee">
+    </ng-template>
+        <ng-template #showBlock>
+      <div >
+          <button  expand="full"  fill="outline" class='buttoncell' ion-button  >{{j}}</button>
+      </div>
+  </ng-template>
+  <ng-template #notShowBlock>
+
+      <div >{{j}} </div>
+  </ng-template>
+
+  <ng-template #haveTraineee>
+    <div >
+        <button style="background-color:green" 
+        expand="full"  fill="outline" class='buttoncell' ion-button  >{{j}}</button>
+    </div>
+</ng-template>
+
+    </td>
+  </tr>
+</table>
+
+<!----------------------------------------------------------------------------------------------------------------------->
+
+
+
+<div class="s">
+     <br>
+</div>
+</ion-content>

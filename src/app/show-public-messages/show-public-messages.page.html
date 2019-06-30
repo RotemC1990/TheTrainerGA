@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar  class= "header" text-center  color="primary">
+    <ion-title>Public Messages</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  
+  
+  <div *ngIf="(messages | async)?.Messages as messages">
+    
+      <div  *ngFor="let message  of messages.slice().reverse()">
+        
+          <ion-card>
+ 
+            <ion-card-header>
+                <ion-card-subtitle class="item item-divider" id="msg"><b>{{message.title}}</b></ion-card-subtitle>
+                <hr>
+                <ion-card-content class="item item-text-wrap" id="msgBody">{{message.message}}</ion-card-content>
+              </ion-card-header>
+          </ion-card>
+ 
+    </div>
+  
+  </div>
+</ion-content>

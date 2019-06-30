@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar class= "header" text-center  color="primary">
+    <ion-title>BMI</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+    <div class="allPage">
+
+  <ion-list >
+
+    <ion-item >
+      <ion-label floating >Weight (kg)</ion-label>
+      <ion-input type="number" [(ngModel)]="weight"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Height (cm)</ion-label>
+      <ion-input type="number" [(ngModel)]="height"></ion-input>
+    </ion-item>
+  </ion-list>
+
+    <button  ion-button color="primary" (click)="calculateBMI()">Calculate</button>
+
+  <ion-card *ngIf="bmiValue">
+    <ion-card-header>
+      BMI Calculation
+    </ion-card-header>
+    <ion-card-content>
+      <p>Person: Weight {{this.weight}} kg, Height {{this.height}} cm</p>
+      <p>BMI: {{bmiValue}}</p>
+      <p><strong>You are {{bmiMessage}}</strong></p>
+    </ion-card-content>
+  </ion-card>
+</div>
+
+</ion-content>

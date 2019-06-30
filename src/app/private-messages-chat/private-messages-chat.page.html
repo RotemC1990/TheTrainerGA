@@ -1,0 +1,25 @@
+<ion-header class="allPage">
+  <ion-toolbar class= "header" text-center  color="primary">
+    <ion-title>Chat</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+  <ion-content   class="allPage">
+    <div *ngIf="(messages | async)?.Messages as messages"  class="allPage">
+      <div  *ngFor="let message  of messages" class="allPage"> 
+        
+          <ion-card class="allPage">
+            <ion-card-content *ngIf="message.senderUID == uid"   class="item item-text-wrap" id="myMassage">{{message.message}}</ion-card-content>
+          </ion-card>
+          <ion-card class="allPage">
+            <ion-card-content *ngIf="message.senderUID != uid" class="item item-text-wrap" id="notMyMassage">{{message.message}}</ion-card-content>
+          </ion-card>
+        
+      </div>
+    </div>
+    <div class="allPage">
+      <ion-textarea placeholder="Enter The Message"  class="allPage" [(ngModel)]='messageToSend'></ion-textarea>
+      <ion-button shape="round" color="primary"  class="allPage" (click)='SendMessage()'>Send</ion-button>
+    </div>
+  </ion-content>

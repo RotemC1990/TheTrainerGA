@@ -1,0 +1,43 @@
+#images{
+    display: inline-flex;
+    flex-wrap: wrap;
+    
+   
+    width: 100%;
+}
+
+.image{
+    margin-left: 2px;
+    margin-right: 2px;
+    width: 30%;
+    height: 30%;
+}
+
+.main-image{
+    width: 100px;
+    height: 100px;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+.allPage{
+   
+    background:rgb(131, 203, 255);
+    color: black;
+    text-emphasis-color: black;
+    background:rgb(131, 203, 255);
+    
+ 
+   
+    
+}
+
+.header{
+    font-weight:bold; 
+}
+
+
+
+ion-content{
+
+    --ion-background-color:rgb(131, 203, 255);
+}

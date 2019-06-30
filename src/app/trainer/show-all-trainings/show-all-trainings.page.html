@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar class= "header" text-center  color="primary">
+    <ion-title>Show All Trainings</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="y" padding>
+ 
+
+  <table  class="table">
+    
+  <tr class="daysNhours" *ngFor="let i of finleschedule; let even = even; let odd=odd" [ngClass]="{odd:odd,even:even}">
+    <td class="yaki"  *ngFor="let j of i ">
+        <div  >
+            {{j}}
+        </div>
+
+    </td>
+  </tr>
+
+</table>
+
+<div class="s">
+     <br>
+</div>
+</ion-content>

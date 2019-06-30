@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-toolbar  class= "header" text-center  color="primary">
+    <ion-title>Number Of Workouts</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-input type="number"  [(ngModel)]="input" onkeypress="return event.charCode >= 48" min="1" placeholder="Insert Number Of Workouts"></ion-input>
+
+  </ion-item>
+      <ion-button [disabled]="myFlag"fill="solid" expand="block"  value="My Button" color="primary"  (click)="schdule()" ><i class="ion-ios-arrow-down"></i>Continue</ion-button>
+        
+      
+        
+</ion-content>

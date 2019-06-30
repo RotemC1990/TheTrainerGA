@@ -1,0 +1,16 @@
+<ion-header >
+  <ion-toolbar class= "header" text-center  color="primary">
+    <ion-title >Trainee</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+  <div class="allPage">
+      <button class="btn btn1" href="#" (click)="messages()" ><i class="ion-ios-arrow-down"></i>Messages</button>
+      <button class="btn btn2" href="#" (click)="gallery()" ><i class="ion-ios-arrow-down"></i>Gallery</button>
+      <button class="btn btn1" href="#" (click)="Notifications()" ><i class="ion-ios-arrow-down"></i>Notifications</button>
+      <button class="btn btn2" href="#" [disabled]="!insertTrainings" (click)="numofworkout()"><i class="ion-ios-arrow-down"></i>Schedule Initialize</button>
+      <button class="btn btn1" href="#" (click)="metrics()"><i class="ion-ios-arrow-down"></i>Metrics</button>
+      <button class="btn btn2" href="#" (click)=" watchSchedule()" ><i class="ion-ios-arrow-down"></i>Watch Schedule</button>
+  </div>
+</ion-content>

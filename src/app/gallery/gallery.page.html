@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar class= "header" text-center  color="primary">
+    <ion-title>Gallery</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding class="allPage">
+  <app-loading *ngIf="!galleryPictures"></app-loading>
+  
+  <div id="images" *ngIf="(galleryPictures | async)?.posts as posts">
+    <div class="image" *ngFor="let post  of posts">
+
+        <img (click)="goto(post)" class="main-image" src="https://ucarecdn.com/{{ post}}/" />
+      
+    </div>
+  </div>
+</ion-content>

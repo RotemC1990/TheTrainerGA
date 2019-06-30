@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar  class= "header" text-center  color="primary">
+    <ion-title>Chat Selection</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div class="center">
+  
+        <ion-card class="allPage" >
+         <ion-card-content class="allPage">
+      
+            
+            <ion-item  *ngFor="let trainees of traineesArray">
+              <ion-button expand="block"  (click)="goto(trainees.traineeUID)" >{{trainees.traineeName}}</ion-button>
+          </ion-item>
+         
+        </ion-card-content> 
+        </ion-card>
+      </div>
+</ion-content>

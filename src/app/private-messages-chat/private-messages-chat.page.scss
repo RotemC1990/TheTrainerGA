@@ -1,0 +1,22 @@
+#myMassage {
+    background-color: rgb(133, 131, 255); // black
+    text-align: left;
+    color: #000;
+  }
+#notMyMassage {
+    background-color: rgb(179, 176, 176); // black
+    text-align: right;
+    color: #000;
+}
+.allPage{
+
+    background:rgb(131, 203, 255);
+
+}
+.header{
+    font-weight:bold; 
+}
+ion-content{
+
+    --ion-background-color:rgb(131, 203, 255);  
+}

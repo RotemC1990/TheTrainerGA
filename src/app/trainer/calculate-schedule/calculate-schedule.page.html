@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar class= "header" text-center  color="primary">
+    <ion-title>Calculate Schedule</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content class="y" padding>
+
+    <div *ngIf="showTrainees" >
+        <ion-text>Trainees that didn't insert schedule :</ion-text> 
+        <ion-item  *ngFor="let users of traineesUnsubscribe">
+            <ion-text>{{users}}</ion-text> 
+         </ion-item>
+         <ion-label><br/><br/></ion-label>
+         <ion-text>To Continue Press Calculate</ion-text> 
+    </div>
+    <div *ngIf="!showTrainees" >
+
+        <ion-text>All Trainees inserted there schedule </ion-text>
+
+    </div>
+    <ion-label><br/><br/></ion-label>
+  <ion-button fill="solid" expand="block" color="primary" (click)="Calculate()">Calculate</ion-button>
+
+
+</ion-content>

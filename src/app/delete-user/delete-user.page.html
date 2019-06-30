@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>DeleteUser</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <div class="center">
+
+      <ion-card >
+       <ion-card-content>
+    
+          
+          <ion-item  *ngFor="let users of usersArray">
+           <ion-text>{{users.traineeName}}</ion-text> <ion-button id='button' color='danger'  (click)="beforeDelete(users.traineeUID , users.traineeName)" > Delete</ion-button>
+        </ion-item>
+       
+      </ion-card-content> 
+      </ion-card>
+    </div>
+</ion-content>

@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar class= "header" text-center  color="primary">
+    <ion-title>{{viewSubTitle}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+  <ion-content class="y" padding>
+     
+      <!--{{viewSubTitle}}-->
+      <table  class="table">
+    
+        <tr class="daysNhours" *ngFor="let i of matrix; let rowIndex=index let even = even; let odd=odd" [ngClass]="{odd:odd,even:even}">
+          <td class="yaki"  *ngFor="let j of i; let colIndex=index ">
+                <ng-template
+                *ngIf="rowIndex!=0 && colIndex!=7 && blockArray[(rowIndex - 1) + (colIndex * 14)] ;then showBlock">
+              </ng-template>
+              <ng-template
+              *ngIf="(rowIndex==0 || colIndex==7)  ;then notShowBlock">
+              </ng-template>
+            <ng-template
+                *ngIf="rowIndex!=0 && colIndex!=7 && !blockArray[(rowIndex - 1) + (colIndex * 14)] ;then disable">
+              </ng-template>
+              <ng-template #showBlock>
+            <div >
+                <button  onClick="this.style.backgroundColor=='aqua' ? this.style.backgroundColor=' rgb(171, 181, 193)' : this.style.backgroundColor='aqua';"
+                expand="full"  fill="outline" class='buttoncell' ion-button (click)="editEntryValue($event, rowIndex, colIndex)" >{{j}}</button>
+            </div>
+        </ng-template>
+        <!-------------------------------------------------------------------------------->
+        <ng-template #disable>
+          <div >
+              <button [disabled]=true 
+              expand="full"  fill="outline" class='disableBtn'  ></button>
+          </div>
+      </ng-template>
+        <ng-template #notShowBlock>
+
+            <div >{{j}} </div>
+        </ng-template>
+
+          </td>
+        </tr>
+      </table>
+
+
+    </ion-content>
+    
+   
+    <ion-button  fill="solid" expand="block" color="primary" (click)="Confirm()">Confirm Schedule</ion-button>
+
+
+
+

@@ -1,0 +1,36 @@
+.allPage{
+    width: 100%;
+    height: 100%;
+    background:rgb(131, 203, 255);
+    color: black
+}
+button{
+    display:table-row  ;
+    height: 50px;
+    width: 100px;
+    margin: 35%;
+   // border-radius: 50%;
+    border: 1px solid aqua;
+    background: #3880ff;
+    color: white;
+   // font: size 300%;
+   font-size: 1em;
+   font-weight:bold;
+}
+p
+{
+    color: black;
+}
+ion-card-header{
+    font-weight:bold;
+    color: black;
+
+}
+ion-content{
+
+    --ion-background-color:rgb(131, 203, 255);
+}
+
+.header{
+  font-weight:bold; 
+} 
