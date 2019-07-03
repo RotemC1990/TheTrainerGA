@@ -1,4 +1,4 @@
-﻿# The Trainer - With Genetic Algorithm
+﻿# The Trainer - With Generic Algorithm
 
 
 The trainer is an application for android and ios.
