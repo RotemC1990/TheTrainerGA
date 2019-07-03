@@ -25,7 +25,7 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {
   }
-
+  //login the user
   async login(){
     const {username, password} = this;
     try {
@@ -53,7 +53,7 @@ export class LoginPage implements OnInit {
 
         }
         );
-        console.log(this.type);
+        //route the page by the user type
         if(this.type == 'admin') {
           this.router.navigate(['admin']);
         }
@@ -78,7 +78,7 @@ export class LoginPage implements OnInit {
 
     }
   }
-
+  //function that show an alert
   async showAlert(header: string, message: string) {
     const alert = await this.alert.create({
       header,

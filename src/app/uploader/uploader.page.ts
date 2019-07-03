@@ -45,6 +45,7 @@ export class UploaderPage implements OnInit {
       }
     )
   }
+  //create the post with the selected image
   async createPost(){
     this.busy = true;
     const image = this.imageURL;
@@ -65,6 +66,7 @@ export class UploaderPage implements OnInit {
 
     this.showAlert('Done!', 'The Image And The Description Uploaded Successfully');
   }
+  //function that show an alert
   async showAlert(header: string, message: string)
   {
     const alert = await this.alert.create({
@@ -74,6 +76,7 @@ export class UploaderPage implements OnInit {
     })
     await alert.present();
   }
+  //open the file browser to select the image
   uploadFile(){
     this.fileButton.nativeElement.click();
   }

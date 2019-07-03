@@ -12,7 +12,7 @@ export class ScheduleIntroPage implements OnInit {
 
   ngOnInit() {
   }
-
+  //functions that routes to another pages
   initializeSchedule() {
     this.router.navigate(['block-schedule']);
   }

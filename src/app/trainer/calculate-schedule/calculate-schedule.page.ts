@@ -29,7 +29,7 @@ export class CalculateSchedulePage implements OnInit {
   finleschedule = new Array(15).fill(undefined).map(() => new Array(7).fill(undefined));
   queue = new Array(15).fill([]).map(() => new Array(7).fill([]));
   randomArray =new Array(98)
-  
+   webSocket
 
     Q1=[];
     Qmin =[]
@@ -54,6 +54,8 @@ export class CalculateSchedulePage implements OnInit {
     } else {
       this.showTrainees = false;
     }
+    //connect to the server
+    this.webSocket = new WebSocket("ws://rotemcohen.ddns.net:8090/example/hello");
   }
 
 
@@ -127,17 +129,37 @@ async Calculate() {
   for(let i = 0; i < len; i++) {
     for(let j = 0 ; j < 101; j++) {
       this.arrayToServer+=this.traineesSchedule[i][j];
-      this.arrayToServer += '$';
+      this.arrayToServer += '@';
     }
-    if (i <= len - 1) {
-      this.arrayToServer += '*';
+    if (i <= len - 2) {
+      this.arrayToServer += '#';
     }
   }
   this.arrayToServer += '%';
   this.arrayToServer += this.user.getUID();
-  console.log(this.arrayToServer);
-this.socket = io.connect('127.0.0.1:8080/WebSocketServer/endpoint');
-this.socket.emit(this.arrayToServer);
+
+
+
+  var divMsg ='';
+  this.webSocket.send(this.arrayToServer);
+
+  this.webSocket.onmessage = function(message) {
+    divMsg += "Server> : " + message.data;
+
+}
+
+this.webSocket.onopen = function() {
+console.log("connection opened");
+};
+
+this.webSocket.onclose = function() {
+console.log("connection closed");
+};
+
+this.webSocket.onerror = function wserror(message) {
+  console.log("error: " + message);
+    }
+
 
 
  this.afs.doc(`users/${this.user.getUID()}`).update({finalSchedule: this.scheduleToFB});
@@ -148,7 +170,7 @@ this.socket.emit(this.arrayToServer);
     this.afs.doc(`users/${traineesUID}`).update({insertedWeekSchedule: false});
   }
 
-  this.showAlert('Done!','Schedule was send and will be avaliable in 30 min');
+  this.showAlert('Done!', 'Schedule was send and will be avaliable in 30 min');
 
 
 }

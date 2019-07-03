@@ -12,6 +12,7 @@ export class MassageIntroPage implements OnInit {
 
   ngOnInit() {
   }
+  //route to pages
   publicMassage(){
     this.router.navigate(['../show-public-messages']);
   }

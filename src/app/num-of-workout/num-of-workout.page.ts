@@ -20,16 +20,14 @@ export class NumOfWorkoutPage implements OnInit {
 
   schdule()
   {
-
+    //check if the inserted value of weekly workouts is legal
     if(this.input>0&&this.input<8)
     {
-    
-
     this.router.navigate(['/schedule/' + this.input.toString()]);
     }
     else
     {
-      alert("אנא הכנס מספר בין 0 ל 7")
+      alert("Enter A Number Between 1-7")
 
     }
   }

@@ -12,7 +12,7 @@ export class ShowPublicMessagesPage implements OnInit {
   messages;
 
   constructor(private afs: AngularFirestore, private user: UserService) {
-    console.log(user.getTrainerUID());
+    //get the public massage from the firebase
     const messagesArray = afs.doc(`publicMessages/${user.getTrainerUID()}`);
     this.messages = messagesArray.valueChanges();
    }

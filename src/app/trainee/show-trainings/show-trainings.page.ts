@@ -14,15 +14,10 @@ export class ShowTrainingsPage implements OnInit {
   
 
 
-  constructor( private user: UserService) 
-  {
-    
+  constructor( private user: UserService) {}
 
 
-
-   
-  }
-
+  //show the trainings that this userr get in the final schedule
   async ngOnInit() {
     this.init();
     this.haveTraine = new Array(98);

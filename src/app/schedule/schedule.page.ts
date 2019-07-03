@@ -101,6 +101,7 @@ h21=this.matrix[14][7]="21:00";
       this.showErrorAlert('Error!', 'There is not enough training days');
     } else {
       this.scheduleToFirebase[99] = this.numOfOptions.toString();
+      //update the firebase values
     this.afstore.doc(`users/${this.user.getUID()}`).update({insertedWeekSchedule: true});
     this.afstore.doc(`users/${this.user.getUID()}`).update({traineeSchedule:  this.scheduleToFirebase});
     this.showAlert('Done!', 'The Schedule Send To Your Trainer');
@@ -108,7 +109,7 @@ h21=this.matrix[14][7]="21:00";
 
     
   }
-
+//function that show an alert and route to the trainee home page
   async showAlert(header: string, message: string) {
     const alert = await this.alert.create({
       header,
@@ -123,7 +124,7 @@ h21=this.matrix[14][7]="21:00";
     await alert.present();
   }
 
-
+//function that show an error alert
 async showErrorAlert(header: string, message: string) {
   const alert = await this.alert.create({
     header,

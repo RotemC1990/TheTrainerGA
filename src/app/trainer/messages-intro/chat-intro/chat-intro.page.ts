@@ -19,6 +19,7 @@ export class ChatIntroPage implements OnInit {
       this.traineesArray = this.user.getTrainerTrainees();
     });
   }
+  //ruote to a chat page with the selecter trainee
   goto(trainee: string){
     this.router.navigate(['private-messages-chat/' + trainee]);
   }

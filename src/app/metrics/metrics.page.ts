@@ -12,6 +12,7 @@ export class MetricsPage implements OnInit {
 
   ngOnInit() {
   }
+  // route to the bmi page
   bmi(){
     this.router.navigate(['/bmi']);
 

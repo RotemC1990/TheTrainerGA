@@ -12,6 +12,7 @@ export class TrainerPage implements OnInit {
 
   ngOnInit() {
   }
+  //functions that routes to another pages
   messages() {
     this.router.navigate(['../messages-intro']);
   }

@@ -49,6 +49,7 @@ export class RegisterPage implements OnInit {
       return;
     }
     try {
+      //register the trainee to the firebase auth and cloud
       const res = await this.afAuth.auth.createUserWithEmailAndPassword(username,password);
       this.uid = res.user.uid;
       this.afstore.doc(`users/${res.user.uid}`).set({
@@ -63,6 +64,7 @@ export class RegisterPage implements OnInit {
         winAndLose
 
       });
+      //update the firebase values
       this.afstore.doc(`users/${res.user.uid}`).update({uid: res.user.uid});
       this.afstore.doc(`users/${res.user.uid}`).update({trainerUID: this.user.getUID()});
       this.afstore.doc(`users/${res.user.uid}`).update({trainerName: this.user.getDisplayName()});
@@ -73,6 +75,7 @@ export class RegisterPage implements OnInit {
         trainees : firestore.FieldValue.arrayUnion({traineeUID , traineeName}),
       });
       this.showAlert('Register Successful', 'Please Enter New User');
+      //clean the values in the page after registertion
       this.username = '';
       this.password = '';
       this.cpassword = '';
@@ -81,6 +84,7 @@ export class RegisterPage implements OnInit {
       console.dir(error);
     }
   }
+  //function that show an alert
   async showAlert(header: string, message: string)
   {
     const alert = await this.alert.create({
@@ -90,6 +94,7 @@ export class RegisterPage implements OnInit {
     })
     await alert.present();
   }
+    //route to the login page
   goToLogin(){
     this.router.navigate(['../login']);
   }

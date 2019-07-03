@@ -14,20 +14,14 @@ export class ShowAllTrainingsPage implements OnInit {
 
 
 
-  constructor( private user: UserService) 
-  {
-    
-
-
-
-   
-  }
+  constructor( private user: UserService) { }
 
   async ngOnInit() {
     this.init();
     this.scheduleFromFB = new Array(98);
+    //get the final schedule from the fire base
     this.scheduleFromFB = await this.user.getFinalSchedule(this.user.getUID());
-    
+    //casting the data from the db to a matrix we can show in the page
     for (let i = 0; i < 98; i++) {
       let row = Math.floor(i / 14);
       let col = Math.floor((i % 14) + 1);

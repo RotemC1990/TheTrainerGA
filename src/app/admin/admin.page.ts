@@ -12,6 +12,8 @@ export class AdminPage implements OnInit {
 
   ngOnInit() {
   }
+
+  //function that route to a register pages by type
   RegisterAdmin() {
     this.router.navigate(['register-admin']);
   }

@@ -29,6 +29,7 @@ export class PrivateMessagesChatPage implements OnInit {
       this.second = this.traineeUID;
     }
     this.uid = this.user.getUID();
+    //restoring the old massages from the firebase
     const messagesArray = afstore.doc(`privateMessages/${this.first}-${this.second}`);
     this.messages = messagesArray.valueChanges();
    }
@@ -36,6 +37,7 @@ export class PrivateMessagesChatPage implements OnInit {
   ngOnInit() {
 
   }
+  //sending the message
   SendMessage() {
       const senderUID = this.user.getUID();
       const message = this.messageToSend;

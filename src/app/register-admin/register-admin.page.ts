@@ -42,6 +42,7 @@ export class RegisterAdminPage implements OnInit {
       return;
     }
     try {
+      //register the admin to the firebase auth and cloud
       const res = await this.afAuth.auth.createUserWithEmailAndPassword(username,password);
       this.afstore.doc(`users/${res.user.uid}`).set({
         username,
@@ -52,6 +53,7 @@ export class RegisterAdminPage implements OnInit {
 
       });
       this.showAlert('Register Successful', 'Please Enter A New User');
+      //clean the values in the page after registertion
       this.username = '';
       this.password = '';
       this.cpassword = '';
@@ -59,6 +61,7 @@ export class RegisterAdminPage implements OnInit {
       console.dir(error);
     }
   }
+  //function that show an alert
   async showAlert(header: string, message: string)
   {
     const alert = await this.alert.create({
@@ -68,6 +71,7 @@ export class RegisterAdminPage implements OnInit {
     })
     await alert.present();
   }
+  //route to the login page
   goToLogin(){
     this.router.navigate(['../login']);
   }

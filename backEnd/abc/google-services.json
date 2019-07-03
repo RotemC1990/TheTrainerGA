@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "739376908599",
+    "firebase_url": "https://the-trainer-332c2.firebaseio.com",
+    "project_id": "the-trainer-332c2",
+    "storage_bucket": "the-trainer-332c2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:739376908599:android:18fc96bf7c045d0a",
+        "android_client_info": {
+          "package_name": "com.tranier.push.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "739376908599-d1omssq83eajteaii3gevb058afuc8jt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAuvreRL7vaL9ZXFykxi6MzY852GkXXr8Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "739376908599-d1omssq83eajteaii3gevb058afuc8jt.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "739376908599-qhrffaaj39vln0l5vnft79g8lfjoi7et.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "io.ionic.starter"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

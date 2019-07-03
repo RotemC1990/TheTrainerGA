@@ -23,6 +23,7 @@ export class GalleryPage implements OnInit {
 
   ngOnInit() {
   }
+  //by clicking a photo its route to the photo page with the discription and likes
   goto(picId: string){
     this.router.navigate(['pic-desc/' + picId]);
   }

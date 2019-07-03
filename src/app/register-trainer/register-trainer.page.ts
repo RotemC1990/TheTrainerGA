@@ -55,6 +55,7 @@ export class RegisterTrainerPage implements OnInit {
       return;
     }
     try {
+      //register the trainer to the firebase auth and cloud
       const res = await this.afAuth.auth.createUserWithEmailAndPassword(username, password);
       this.uid = res.user.uid;
       this.afstore.doc(`users/${res.user.uid}`).set({
@@ -72,13 +73,14 @@ export class RegisterTrainerPage implements OnInit {
 
 
       });
-
+      //update the firebase values
       this.afstore.doc(`users/${res.user.uid}`).update({uid: res.user.uid});
       this.afstore.doc(`publicMessages/${res.user.uid}`).set({});
       this.afstore.doc(`posts/${this.user.getUID()}`).set({});
 
 
       this.showAlert('Register Successful', 'Please Enter New User');
+      //clean the values in the page after registertion
       this.username = '';
       this.password = '';
       this.cpassword = '';
@@ -87,6 +89,7 @@ export class RegisterTrainerPage implements OnInit {
       console.dir(error);
     }
   }
+  //function that show an alert
   async showAlert(header: string, message: string)
   {
     const alert = await this.alert.create({
@@ -96,6 +99,7 @@ export class RegisterTrainerPage implements OnInit {
     });
     await alert.present();
   }
+  //route to the login page
   goToLogin() {
     this.router.navigate(['../login']);
   }

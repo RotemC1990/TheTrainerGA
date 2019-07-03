@@ -14,6 +14,7 @@ export class BmiPage implements OnInit {
   constructor() { }
   ngOnInit() {
   }
+  //function that calculate the bmi by the inserted values in the page
   calculateBMI() {
     if (this.weight > 0 && this.height > 0) {
       let finalBmi = this.weight / (this.height / 100 * this.height / 100);

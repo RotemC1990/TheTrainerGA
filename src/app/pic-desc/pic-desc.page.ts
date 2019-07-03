@@ -24,17 +24,20 @@ export class PicDescPage implements OnInit {
      private afs: AngularFirestore,
      private user:UserService) {}
 
+
   async ngOnInit() {
     this.shownumOflikes = false;
+    //get the picture for snapshot from previous page
     this.pictureId = this.route.snapshot.paramMap.get('id');
     if(this.user.getUserType() == 'trainer') {
       this.path = this.user.getUID();
     } else {
       this.path = this.user.getTrainerUID();
     }
+    // get the picture reference from firebase
     this.postReference = this.afs.doc(`posts/trainers/${this.path}/${this.pictureId}`)
     this.sub = this.postReference.valueChanges().subscribe(val=>{
-     
+
       this.post = val;
       this.heartType = val.likes.includes(this.user.getUID()) ? 'heart' : 'heart-empty';
       this.numOfLikes = val.likes.length;
@@ -44,10 +47,11 @@ export class PicDescPage implements OnInit {
     })
   }
 
+  //when exiting the page --> unsubscribe
   ngOnDestroy(){
     this.sub.unsubscribe();
   }
-
+  //for the like button - like or unlike
   toggleHeart(){
     if(this.heartType == 'heart-empty'){
       this.postReference.update({

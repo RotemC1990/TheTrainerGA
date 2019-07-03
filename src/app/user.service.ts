@@ -45,6 +45,7 @@ export class UserService{
     {
         this.dataCollections = afs.collection<any>(`users`);
     }
+    //return the trainee schedule by his uid
     async getTraineeSchedule(uid)
     {
         return new Promise<string[]>((resolve, reject) => {
@@ -61,7 +62,7 @@ export class UserService{
     }
 
 
-
+    //return an array of scheduls who was inserted this week by the trainer uid
     async getScheduleUidToCalculate(trainerUid)
     {
         this.numOftraineesToSchedule = 0 ;
@@ -89,6 +90,7 @@ export class UserService{
             });
         });
     }
+    //return an array of name of trainees whi didnt insert schedule this week
     async getScheduleNameThatNotInserted(trainerUid)
     {
         let countOfTrainees = 0 ;
@@ -117,6 +119,7 @@ export class UserService{
         });
     }
 
+    //return the winAndLose number of a trainee by his uid
     async getTraineeWinAndLose(uid) {
         return new Promise<number>((resolve, reject) => {
             this.dataCollections.valueChanges().subscribe(collection => {
@@ -132,12 +135,12 @@ export class UserService{
     }
 
 
-
+    
     setUser( user: user){
         this.user = user;
         this.getLoggedInUser();
     }
-    //if we have problem so it is the user chaneges
+    //return the uid of the user
     getUID(){
         if(!this.user){
             if(this.afAuth.auth.currentUser){
@@ -169,14 +172,17 @@ export class UserService{
         }
 
     }
+    //return the user name(email)
     getUserName() {
         return this.user.username;
     }
 
+    //return the trainer block array
     getTrainerBlockArray() {
         return this.user.trainerBlockArray;
     }
 
+    //return the final schedule for this week
     async getFinalSchedule(uid) {
         return new Promise<string[]>((resolve, reject) => {
             this.dataCollections.valueChanges().subscribe(collection => {
@@ -190,37 +196,37 @@ export class UserService{
             });
         });
     }
-
+    //return a boolean value for the trainee to know if he can insert a weekly schedule
     getCanInputSchedule() {
         return this.insertTrainings;
     }
-
+    //return the schedule for the algorithem calculation
     getScheduleToAlgorithem() {
         return this.user.scheduleToAlgorithem;
     }
-
+    //return an array with the trainer trainees and there uid
     getTrainerTrainees() {
         return this.user.trainees;
     }
 
-
+    //return the user type
     getUserType(){
         this.isAuthentaicted();
         return this.user.type;
     }
-
+    //return the user name
     getDisplayName(){
         return this.user.displayName;
     }
-
+    //return for a trainee his trainer uid
     getTrainerUID(){
         return this.user.trainerUID;
     }
-
+    //return for the trainee the block array that the trainer insert
     traineeGetTrainerBlockArray() {
         return this.blockArray;
     }
-
+    //check if the user is authentaicted
     async isAuthentaicted() {
         if (this.user) { return true; }
 
@@ -249,7 +255,7 @@ export class UserService{
         this.getLoggedInUser();
         return false;
     }
-
+    //initialize the logged in user informetion
     async getLoggedInUser() {
         return new Promise((resolve, reject) => {
             this.dataCollections.valueChanges().subscribe(collection => {

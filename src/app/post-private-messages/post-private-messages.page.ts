@@ -29,7 +29,7 @@ export class PostPrivateMessagesPage implements OnInit {
     });
   }
 
-
+  //select the trainees we want to send them the massage
   selectTrainees(trainee)
   {
     this.needToAddUser = true; 
@@ -48,9 +48,8 @@ export class PostPrivateMessagesPage implements OnInit {
       }
     }
   }
+  //sending the private massage
   SendMessage(){
-    console.log(this.traineesCheckedByUID)
-    console.log('in private message uid ' + this.user.getUID());
     const message = this.message;
     const senderUID = this.user.getUID();
     for(let i = 0; i < this.traineesArray.length; i++) {

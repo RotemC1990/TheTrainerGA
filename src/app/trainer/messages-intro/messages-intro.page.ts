@@ -12,6 +12,7 @@ export class MessagesIntroPage implements OnInit {
 
   ngOnInit() {
   }
+  //functions that routes to another pages
   Generalmessages() {
     this.router.navigate(['post-public-messages']);
   }

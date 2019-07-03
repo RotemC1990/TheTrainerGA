@@ -17,6 +17,7 @@ export class TraineePage implements OnInit {
    ngOnInit() {
      this.insertTrainings = this.user.getCanInputSchedule();
   }
+  //functions that routes to another pages
   gallery(){
     this.router.navigate(['../gallery']);
 

@@ -33,8 +33,7 @@ ngOnInit() {
     } else {
       this.blockArray[this.placeInArray] = false;
     }
-    console.log(this.placeInArray);
-    console.log(this.blockArray[this.placeInArray]);
+  
 
     this.matrixToFirebase[colIndex][rowIndex];//לעלות את זה לפיירבייס מתאמן
 }

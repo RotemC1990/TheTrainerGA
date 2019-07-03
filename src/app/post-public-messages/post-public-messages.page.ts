@@ -17,6 +17,7 @@ export class PostPublicMessagesPage implements OnInit {
   ngOnInit() {
   }
 
+  //function that publish the public massages
   async PublishMessage(){
     const title = this.title;
     const message = this.message;
