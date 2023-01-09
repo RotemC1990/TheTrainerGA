@@ -29,7 +29,7 @@
     "adb": "^0.2.0",
     "core-js": "^2.5.4",
     "firebase": "^5.11.1",
-    "firebase-admin": "^8.2.0",
+    "firebase-admin": "^11.4.1",
     "ionic2-calendar": "^0.5.2",
     "ng-socket-io": "^0.2.4",
     "rxjs": "~6.3.3",
